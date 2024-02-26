@@ -27,6 +27,15 @@ body {
     font-family: "Geologica", sans-serif;
 }
 
+p, h1, h2 {
+    color: var(--color-dark-blue);
+}
+
+h2 {
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
 a {
     color: var(--color-blue);
 }
@@ -142,7 +151,7 @@ main {
     grid-area: content;
     display: flex;
     gap: 10px;
-    max-height: 600px;
+    max-height: 580px;
 }   
 
 .cards {
@@ -162,6 +171,7 @@ main {
     cursor: pointer;
     flex-direction: column;
     transition: all .4s;
+    text-align: start;
 }
 
 .card:not(.card--active):hover {
@@ -177,7 +187,7 @@ main {
 }
 
 .card__description {
-    margin-top: 20px;
+    margin-top: 15px;
     width: 100%;
     font-size: 16px;
     display: flex;
@@ -198,11 +208,26 @@ main {
     color: var(--color-dark-blue)
 }
 
-.info {
+.content__info {
     background-color: var(--color-light);
+    flex-grow: 1;
+
+    padding: 15px 20px;
 }
 
-header, nav, .info {
+.content__info-avatar {
+    border-radius: 10px
+}
+
+.content__info-title {
+    margin-top: 50px;
+}
+
+.content__info-text {
+    max-width: 700px;
+}
+
+header, nav {
     padding: 15px;
 }
 
@@ -248,7 +273,7 @@ header, nav, .info {
         flex-grow: 0;
     }
 
-    .info{
+    .content__info{
         height: 620px;
     }
 }
