@@ -32,3 +32,6 @@ btnRes.addEventListener("click", ()=>{
     }
 
 })
+
+
+//работа со строками
