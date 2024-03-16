@@ -16,8 +16,10 @@ button {
 
 .miniCalc,
 .form,
-.game {
-    margin-top: 50px;
+.game,
+.cat,
+.magic {
+    margin-top: 60px;
     max-width: max-content;
 }
 
@@ -77,3 +79,35 @@ button {
 .game-btn {
     margin-top: 15px;
 }
+
+
+.cat{
+    cursor: pointer;
+}
+
+.cat >  p {
+    font-size: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.magic {
+    margin: 60px auto 0;
+    font-size: 20px;
+}
+
+.magic > label {
+    font-size: 20px;
+}
+
+.usual {
+    font-size: 24px;
+}
+
+#magic-word {
+    max-width: 180px;
+    
+    color: #1e7fb9;
+    text-align:  center;
+}
+

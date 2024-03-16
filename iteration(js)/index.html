@@ -49,6 +49,47 @@
       <button class="game-btn">проверить</button>
     </div>
 
+
+    <div class="cat">
+      <p>Наведи курсор на котика)</p>
+      <img src="./img/catOne.jpg" alt="cat" class="cat-img" width="400px" height="415px">
+    </div>
     
+    <div class="magic">
+      <label for="magic-word">Это <b class="usual">обычный</b> инпут, просто нажми на него: </label>
+      <input type="text" id="magic-word"   >
+    </div>
+
+    <script>
+  
+        //наведение и снятие курсора мыши
+        const imgCat = document.querySelector(".cat-img")
+
+        imgCat.addEventListener("mouseover",()=>{
+          console.log()
+          if(imgCat.src.match("catOne.jpg")){
+            imgCat.src = "./img/catTwo.jpg"
+          }
+        })
+
+        imgCat.addEventListener("mouseout",()=>{
+          if(imgCat.src.match("catTwo.jpg")){
+            imgCat.src = "./img/catOne.jpg"
+          }
+        })
+        
+        //фокус инпута
+        const word = prompt("Введи любое слово и запомни его))")
+        const inputMagic = document.getElementById("magic-word")
+
+        inputMagic.addEventListener("focus", ()=>{
+
+          inputMagic.value = word
+          inputMagic.disabled = true
+          document.querySelector(".magic > label").textContent = "Это то слово, которое ты загадал? 😉"
+
+        })
+
+    </script>
   </body>
 </html>
