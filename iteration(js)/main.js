@@ -34,7 +34,7 @@ btnRes.addEventListener("click", ()=>{
 })
 
 
-//работа со строками
+//работа со строками, вывод в консоль
 const form = document.querySelector(".form")
 
 form.addEventListener("click", (e)=>{
@@ -82,4 +82,39 @@ form.addEventListener("click", (e)=>{
 )
 
 
-// присовение переменных, обработка ошибок
+// присвоение переменных, try...catch
+const btnGame = document.querySelector(".game-btn")
+const totalAttempts = document.querySelector(".game-total > span")
+
+
+let result
+let randomNumber = Math.floor(Math.random() * 90) + 1
+
+btnGame.addEventListener("click", ()=>{
+    if(btnGame.textContent === "заново"){
+        result = document.querySelector("#game-number")
+        let res = confirm("Точно хотите начать заново?")
+        if(res){
+            randomNumber = Math.floor(Math.random() * 90) + 1
+            totalAttempts.textContent = totalAttempts.textContent && 0
+            result.value = ""
+            btnGame.textContent="проверить"
+        }
+    }else {
+        try{
+            result = document.querySelector("#game-number").value
+            console.log(typeof result, result, typeof randomNumber, randomNumber)
+            if(result === "" || isNaN(result)){
+                throw new Error("Пусто (нет числа) или введена строка")
+            }else if(+result !== randomNumber) {
+                alert("Другое число загадано")
+                totalAttempts.textContent = +totalAttempts.textContent + 1
+            }else{
+                btnGame.textContent="заново"
+                alert("Ураа, угадали)")
+            }
+        }catch(err){
+            alert(`validation Error: ${err.message}`)
+        }
+    }
+})
