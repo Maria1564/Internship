@@ -8,7 +8,6 @@ btnRes.addEventListener("click", ()=>{
     let result = document.querySelector(".result")
 
     if(!firstNum|| !secondNum || !operator) {
-        console.log(firstNum)
 
         alert("Не все поля заполнены или заполнены неверно!")
         return
@@ -35,3 +34,43 @@ btnRes.addEventListener("click", ()=>{
 
 
 //работа со строками
+const form = document.querySelector(".form")
+
+form.addEventListener("click", (e)=>{
+
+    if(e.target.tagName!=="BUTTON" ) return
+    if (!form.checkValidity()) return;
+
+
+    
+    const user  = {}
+    const name = form.querySelector("#name").value.trim()
+    user.name = name
+    
+    const age = form.querySelector("#age").value
+    user.age = age
+    
+    const regPhone = new RegExp("\\d\\s\\(\\d\\d\\d\\)\\s\\d\\d\\d") 
+    let phone  = form.querySelector("#phone").value
+    
+    phone =  `${phone.match(regPhone)[0]}-**-**`
+    user.phone = phone
+    
+    const divAboutUser = document.querySelector(".about-user")
+    
+    let pName = document.createElement("p")
+    pName.innerHTML = "<b>имя:</b> " + user.name
+    
+    let pAge = document.createElement("p")
+    pAge.innerHTML = "<b>возраст:</b> " + user.age
+    
+    let pPhone = document.createElement("p")
+    pPhone.innerHTML = "<b>телефон:</b> " + user.phone
+    
+    divAboutUser.append(pName, pAge, pPhone)
+
+    e.preventDefault()
+
+    }
+)
+

@@ -1,0 +1,37 @@
+* {
+    box-sizing: border-box;
+}
+
+h1, h2, h3, p {
+    margin: 0;
+    margin-bottom: 5px;
+}
+
+.form  {
+    margin-top: 50px;
+    max-width: max-content;
+}
+
+.form > span {
+    display: inline-block;
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 18px;
+    color: rgb(230, 23, 23);
+}
+
+.form > .info {
+    margin-top: 30px;
+}
+
+.info-spam {
+    font-size: 9px;
+}
+
+.form > .btn-form {
+    font-size: 16px;
+    padding: 15px 22px;
+    cursor: pointer;
+    display: block;
+    margin: 0 auto;
+}
