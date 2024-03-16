@@ -1,6 +1,7 @@
 
 //арифметические операции
 const btnRes = document.querySelector(".btn-result")
+
 btnRes.addEventListener("click", ()=>{
     const firstNum = document.getElementById("first-num").value
     const secondNum = document.getElementById("second-num").value
@@ -55,6 +56,12 @@ form.addEventListener("click", (e)=>{
     
     phone =  `${phone.match(regPhone)[0]}-**-**`
     user.phone = phone
+    console.log("user >> ", user)
+    console.group()
+    console.log("name >> ", user.name)
+    console.log("age >> ", user.age)
+    console.log("phone >> ", user.phone)
+    console.groupEnd()
     
     const divAboutUser = document.querySelector(".about-user")
     
@@ -74,3 +81,5 @@ form.addEventListener("click", (e)=>{
     }
 )
 
+
+// присовение переменных, обработка ошибок
