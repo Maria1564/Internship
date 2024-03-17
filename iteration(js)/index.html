@@ -64,12 +64,18 @@
       <h2>Даты с заплонированными событиями</h2>
       <div class="calendar-inner">
         <ul>
-            <li><a href="#" data-date="2024-03-17" data-event="право">17 апрель</a></li>
-            <li><a href="#" data-date="2024-03-18" data-event="экономика">18 апрель</a></li>
-            <li><a href="#" data-date="2024-03-19" data-event="ничего">19 апрель</a></li>
-            <li><a href="#" data-date="2024-03-20" data-event="философия">20 апрель</a></li>
+            <li><a href="#" data-date="2024-04-17" data-event="право">17 апрель</a></li>
+            <li><a href="#" data-date="2024-04-18" data-event="экономика">18 апрель</a></li>
+            <li><a href="#" data-date="2024-04-19" data-event="ничего">19 апрель</a></li>
+            <li><a href="#" data-date="2024-04-20" data-event="философия">20 апрель</a></li>
         </ul>
         <div class="calender-event "></div>
+      </div>
+
+      <div class="content">
+        <h2>Ввод текста</h2>
+        <input type="text" name="" id="content" onchange="changeContent(this)">
+        <span></span>
       </div>
       
   </div>
@@ -93,7 +99,7 @@
         })
         
         //фокус инпута
-        const word = prompt("Введи любое слово и запомни его))")
+        const word = prompt("Введи любое слово и запомни его))","Дом")
         const inputMagic = document.getElementById("magic-word")
 
         inputMagic.addEventListener("focus", ()=>{
@@ -105,7 +111,7 @@
         })
         
 
-        //клик, предотвращение работы события
+        //клик, предотвращение работы события,изменение контента определённого элемента
         const calendar = document.querySelector(".calendar")
         const divEvent = document.querySelector(".calender-event")
         
@@ -118,13 +124,19 @@
            <h4>${date}</h4>
            <p>${dateEvent !== "ничего" ? `экзамен: ${dateEvent}`:"отдых"}</p>
            `
+           divEvent.classList.add("active")
           }
 
-          divEvent.classList.add("active")
         })
         
 
-        //изменение контента элемента
+        //изменение контента
+        function changeContent(e){
+          console.log(e, e.value)
+          const text =  document.querySelector(".content > span")
+          text.textContent =e.value
+
+        }
     </script>
   </body>
 </html>

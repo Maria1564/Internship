@@ -25,7 +25,8 @@ ul{
 .game,
 .cat,
 .magic,
-.calendar {
+.calendar,
+.content {
     margin-top: 60px;
     max-width: max-content;
 }
