@@ -60,6 +60,20 @@
       <input type="text" id="magic-word"   >
     </div>
 
+    <div class="calendar">
+      <h2>Даты с заплонированными событиями</h2>
+      <div class="calendar-inner">
+        <ul>
+            <li><a href="#" data-date="2024-03-17" data-event="право">17 апрель</a></li>
+            <li><a href="#" data-date="2024-03-18" data-event="экономика">18 апрель</a></li>
+            <li><a href="#" data-date="2024-03-19" data-event="ничего">19 апрель</a></li>
+            <li><a href="#" data-date="2024-03-20" data-event="философия">20 апрель</a></li>
+        </ul>
+        <div class="calender-event "></div>
+      </div>
+      
+  </div>
+
     <script>
   
         //наведение и снятие курсора мыши
@@ -89,7 +103,28 @@
           document.querySelector(".magic > label").textContent = "Это то слово, которое ты загадал? 😉"
 
         })
+        
 
+        //клик, предотвращение работы события
+        const calendar = document.querySelector(".calendar")
+        const divEvent = document.querySelector(".calender-event")
+        
+        calendar.addEventListener("click", (e)=>{
+          if(e.target.tagName == "A"){
+            e.preventDefault()
+            let date = e.target.dataset.date
+            let dateEvent = e.target.dataset.event
+            divEvent.innerHTML = `
+           <h4>${date}</h4>
+           <p>${dateEvent !== "ничего" ? `экзамен: ${dateEvent}`:"отдых"}</p>
+           `
+          }
+
+          divEvent.classList.add("active")
+        })
+        
+
+        //изменение контента элемента
     </script>
   </body>
 </html>
