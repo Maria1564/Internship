@@ -55,7 +55,7 @@ form.addEventListener("click", (e)=>{
     let phone  = form.querySelector("#phone").value
     
     phone =  `${phone.match(regPhone)[0]}-**-**`
-    user.phone = phone
+    user.phone = phone  
     console.log("user >> ", user)
     console.group()
     console.log("name >> ", user.name)
