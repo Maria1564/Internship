@@ -301,3 +301,23 @@ formAuth.addEventListener("submit", (e)=>{
 
 
 
+//super (у объектов)
+const bird = {
+    aboutBird(){
+        console.log("Это птица, она летает")
+    }
+}
+
+const goose = {
+    aboutBird(){
+        super.aboutBird()
+        console.log("А также щипается, так как этой птицей является гусь")
+    }
+}
+
+
+Object.setPrototypeOf(goose, bird)
+
+goose.aboutBird() //Это птица, она летает  А также щипается, так как этой птицей является гусь 
+
+bird.aboutBird() //Это птица, она летает
