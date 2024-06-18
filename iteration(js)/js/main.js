@@ -57,7 +57,7 @@ form.addEventListener("click", (e)=>{
     
     phone =  `${phone.match(regPhone)[0]}-**-**`
     user.phone = phone
-    console.group()
+    console.group("user")
     console.log("name >> ", user.name)
     console.log("age >> ", user.age)
     console.log("phone >> ", user.phone)
@@ -141,7 +141,7 @@ imgCat.addEventListener("mouseout",()=>{
 })
 
 //фокус инпута
-const word = prompt("Введи любое слово и запомни его, иначе сайт придумает своё слово))","").trim()
+// const word = prompt("Введи любое слово и запомни его, иначе сайт придумает своё слово))","").trim()
 const inputMagic = document.getElementById("magic-word")
 
 
@@ -221,11 +221,11 @@ function* getItem(){
 const item = getItem()
 btnGenerate.addEventListener("click", () => {
     let {value, done} = item.next()
-  
+    
     let li = document.createElement("li")
     li.textContent = value
     listGenerate.append(li)
-
+    
     if(done) {
         btnGenerate.disabled = true
         return
@@ -267,6 +267,12 @@ class User {
 }
 
 let user = null
+const local =JSON.parse(localStorage.getItem("users"))?.length
+if (!local){
+    localStorage.setItem("users",  JSON.stringify([]))
+}else{
+    console.log("Список пользователей: ",   JSON.parse(localStorage.getItem("users")))
+}
 
 formReg.addEventListener("submit", (e)=>{
     e.preventDefault()
@@ -281,6 +287,13 @@ formReg.addEventListener("submit", (e)=>{
 
     blockRegister.style.display = "none"
     blockLogin.style.display = "block"
+
+    //localStorage
+    const currentUsers = JSON.parse(localStorage.getItem("users"))
+    localStorage.setItem("users", JSON.stringify([...currentUsers, user]))
+
+    console.log("Список пользователей: ", JSON.parse(localStorage.getItem("users")))
+
 })
 
     
@@ -321,3 +334,46 @@ Object.setPrototypeOf(goose, bird)
 goose.aboutBird() //Это птица, она летает  А также щипается, так как этой птицей является гусь 
 
 bird.aboutBird() //Это птица, она летает
+
+
+//получение и вывод url текущей страницы
+const url = location.href
+alert(`URL текущей страницы: ${url}`)
+// alert(`Количесвто записей в истории: ${history.length}`)
+
+//объект history
+const nextHist = document.querySelector(".open")
+nextHist.addEventListener("click", ()=>{ 
+    const path = location.pathname
+    console.log(path)
+    if(path !== "/catalog"){
+        nextHist.textContent = " Кататлог"
+        history.pushState({lastPath: location.pathname}, "", "/catalog")
+    }else{
+        nextHist.textContent = " другое"
+        history.pushState({lastPath: location.pathname}, "", "/other")
+    }
+})
+
+window.addEventListener("popstate", (event)=>console.log( event.state))
+
+
+// Cookie
+document.cookie = "userToken=ifg5ka5y;  max-age=1800"
+
+setTimeout(()=>{
+    alert("обновлены параметры у " + document.cookie)
+    document.cookie += "; secure; samesite=strict"
+}, 10000)
+
+
+//sessionStorage
+debugger
+if(sessionStorage.getItem("countVisited")){
+    sessionStorage.setItem("countVisited", Number(sessionStorage.getItem("countVisited")) + 1)
+    console.log("countVisited >> ", sessionStorage.getItem("countVisited"))
+    debugger
+}else{
+    sessionStorage.setItem("countVisited", 1)
+}
+console.log(`Сайт был посвещён ${sessionStorage.getItem("countVisited")} раз(раза)`)
