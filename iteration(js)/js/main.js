@@ -141,7 +141,7 @@ imgCat.addEventListener("mouseout",()=>{
 })
 
 //фокус инпута
-const word = prompt("Введи любое слово и запомни его, иначе сайт придумает своё слово))","").trim()
+// const word = prompt("Введи любое слово и запомни его, иначе сайт придумает своё слово))","").trim()
 const inputMagic = document.getElementById("magic-word")
 
 
@@ -321,3 +321,27 @@ Object.setPrototypeOf(goose, bird)
 goose.aboutBird() //Это птица, она летает  А также щипается, так как этой птицей является гусь 
 
 bird.aboutBird() //Это птица, она летает
+
+
+//получение и вывод url текущей страницы
+const url = location.href
+alert(`URL текущей страницы: ${url}`)
+alert(`Количесвто записей в истории: ${history.length}`)
+
+//объект history
+const nextHist = document.querySelector(".open")
+nextHist.addEventListener("click", ()=>{ 
+    const path = location.pathname
+    console.log(path)
+    if(path !== "/catalog"){
+        nextHist.textContent = " Кататлог"
+        history.pushState({lastPath: location.pathname}, "", "/catalog")
+    }else{
+        nextHist.textContent = " другое"
+        history.pushState({lastPath: location.pathname}, "", "/other")
+    }
+})
+
+window.addEventListener("popstate", (event)=>console.log( event.state))
+
+
