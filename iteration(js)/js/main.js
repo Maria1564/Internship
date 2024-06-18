@@ -57,7 +57,7 @@ form.addEventListener("click", (e)=>{
     
     phone =  `${phone.match(regPhone)[0]}-**-**`
     user.phone = phone
-    console.group()
+    console.group("user")
     console.log("name >> ", user.name)
     console.log("age >> ", user.age)
     console.log("phone >> ", user.phone)
@@ -368,9 +368,11 @@ setTimeout(()=>{
 
 
 //sessionStorage
-
+debugger
 if(sessionStorage.getItem("countVisited")){
     sessionStorage.setItem("countVisited", Number(sessionStorage.getItem("countVisited")) + 1)
+    console.log("countVisited >> ", sessionStorage.getItem("countVisited"))
+    debugger
 }else{
     sessionStorage.setItem("countVisited", 1)
 }
