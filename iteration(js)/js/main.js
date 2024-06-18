@@ -267,7 +267,7 @@ class User {
 }
 
 let user = null
-const local = JSON.parse(localStorage.getItem("users")).length
+const local =JSON.parse(localStorage.getItem("users"))?.length
 if (!local){
     localStorage.setItem("users",  JSON.stringify([]))
 }else{
