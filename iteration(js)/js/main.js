@@ -388,7 +388,18 @@ const getRepositories = (url)=>{
     
     })
     .then(listRepos=>  listRepos.json())
-    .then(listRepos=> console.log("list rep>> ", listRepos))
+    .then(listRepos=> {
+        const list = document.querySelector(".list_rep")
+        console.log("list rep>> ", listRepos)
+        list.innerHTML =""
+        for (let obj of listRepos){
+            console.log(obj.full_name)
+            let li = document.createElement("li")
+            li.textContent = obj.full_name
+            console.log(li)
+            list.append(li)
+        }
+    })
     .catch(err => alert(err.message))
 }
 
@@ -408,6 +419,7 @@ getPromise("maria1564")
 } )
 .then(infoUser => {
     console.log("infoUser >> ", infoUser)
+    document.querySelector(".username").textContent = infoUser.login
     const urlRepo = infoUser.repos_url
     getRepositories(urlRepo)
 })
@@ -415,23 +427,24 @@ getPromise("maria1564")
 
 
 // async/await
-const funcAwait = async(username)=>{
-    try{
+// const funcAwait = async(username)=>{
+//     try{
 
-        const res = await fetch(`https://api.github.com/users/${username}`)
-        if(res.ok === false) {
-            throw new Error("Не удалось получить данные")
-        }
+//         const res = await fetch(`https://api.github.com/users/${username}`)
+//         if(res.ok === false) {
+//             throw new Error("Не удалось получить данные")
+//         }
 
-        const infoUser = await res.json()
-        console.log(infoUser)
-        const urlRepo = infoUser.repos_url
-        getRepositories(urlRepo)
-    }catch(error){
-        console.log("error >> ", error.message)
-        alert(error.message + " (async/await)")
-    }
+//         const infoUser = await res.json()
+//         console.log(infoUser)
+//         document.querySelector(".username").textContent = infoUser.login
+//         const urlRepo = infoUser.repos_url
+//         getRepositories(urlRepo)
+//     }catch(error){
+//         console.log("error >> ", error.message)
+//         alert(error.message + " (async/await)")
+//     }
 
-}
+// }
 
-funcAwait("takeo")
+// funcAwait("takeo")
