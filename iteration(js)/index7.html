@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Получение репозиториев пользователя</h1>
+    <form  class="promise">
+        <h2>С помощью Promise</h2>
+        <input name="nickname" type="text" id="query_promise" placeholder="никнейм с github">
+        <input type="submit" value="Поиск"/>
+    </form>
+    <ul class="listRepPromise"></ul>
+    <form class="await">
+        <h2>С помощью async/await</h2>
+        <input name="nickname" type="text" id="query_await" placeholder="никнейм с github">
+        <input type="submit" value="Поиск"/>
+    </form>
+    <ul class="listRepAwait"></ul>
+
+
+    <script src="./js/iter7.js"></script>
+</body>
+</html>
