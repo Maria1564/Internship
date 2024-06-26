@@ -58,9 +58,9 @@ form.addEventListener("click", (e)=>{
     phone =  `${phone.match(regPhone)[0]}-**-**`
     user.phone = phone
     console.group("user")
-    console.log("name >> ", user.name)
-    console.log("age >> ", user.age)
-    console.log("phone >> ", user.phone)
+    //console.log()()("name >> ", user.name)
+    //console.log()("age >> ", user.age)
+    //console.log()("phone >> ", user.phone)
     console.groupEnd()
     
     const divAboutUser = document.querySelector(".about-user")
@@ -106,7 +106,7 @@ btnGame.addEventListener("click", ()=>{
     }else {
         try{
             result = document.querySelector("#game-number").value
-            console.log(typeof result, result, typeof randomNumber, randomNumber)
+            //console.log()(typeof result, result, typeof randomNumber, randomNumber)
             if(result === "" || isNaN(result)){
                 throw new Error("Пусто (нет числа) или введена строка")
             }else if(+result !== randomNumber) {
@@ -182,7 +182,7 @@ calendar.addEventListener("click", (e)=>{
 
 //изменение контента
 function changeContent(e){
-    console.log(e, e.value)
+    //console.log()(e, e.value)
     const text =  document.querySelector(".content > span")
     text.textContent =e.value
 
@@ -201,8 +201,8 @@ const copyReversArr = (nameArr, ...arr) =>{
     }
 }   
 
-console.log(copyReversArr("numbers", 3, 6, 2, 7, 45, 1))
-console.log(copyReversArr("fruits", "banana", "apple", "apricot", "peach"))
+//console.log()(copyReversArr("numbers", 3, 6, 2, 7, 45, 1))
+//console.log()(copyReversArr("fruits", "banana", "apple", "apricot", "peach"))
 
 
 
@@ -271,7 +271,7 @@ const local =JSON.parse(localStorage.getItem("users"))?.length
 if (!local){
     localStorage.setItem("users",  JSON.stringify([]))
 }else{
-    console.log("Список пользователей: ",   JSON.parse(localStorage.getItem("users")))
+    //console.log()("Список пользователей: ",   JSON.parse(localStorage.getItem("users")))
 }
 
 formReg.addEventListener("submit", (e)=>{
@@ -292,7 +292,7 @@ formReg.addEventListener("submit", (e)=>{
     const currentUsers = JSON.parse(localStorage.getItem("users"))
     localStorage.setItem("users", JSON.stringify([...currentUsers, user]))
 
-    console.log("Список пользователей: ", JSON.parse(localStorage.getItem("users")))
+    //console.log()("Список пользователей: ", JSON.parse(localStorage.getItem("users")))
 
 })
 
@@ -317,14 +317,14 @@ formAuth.addEventListener("submit", (e)=>{
 //super (у объектов)
 const bird = {
     aboutBird(){
-        console.log("Это птица, она летает")
+        //console.log()("Это птица, она летает")
     }
 }
 
 const goose = {
     aboutBird(){
         super.aboutBird()
-        console.log("А также щипается, так как этой птицей является гусь")
+        //console.log()("А также щипается, так как этой птицей является гусь")
     }
 }
 
@@ -338,14 +338,14 @@ bird.aboutBird() //Это птица, она летает
 
 //получение и вывод url текущей страницы
 const url = location.href
-alert(`URL текущей страницы: ${url}`)
+// alert(`URL текущей страницы: ${url}`)
 // alert(`Количесвто записей в истории: ${history.length}`)
 
 //объект history
 const nextHist = document.querySelector(".open")
 nextHist.addEventListener("click", ()=>{ 
     const path = location.pathname
-    console.log(path)
+    //console.log()(path)
     if(path !== "/catalog"){
         nextHist.textContent = " Кататлог"
         history.pushState({lastPath: location.pathname}, "", "/catalog")
@@ -355,25 +355,28 @@ nextHist.addEventListener("click", ()=>{
     }
 })
 
-window.addEventListener("popstate", (event)=>console.log( event.state))
+window.addEventListener("popstate", (event)=> console.log()( event.state))
 
 
 // Cookie
 document.cookie = "userToken=ifg5ka5y;  max-age=1800"
 
 setTimeout(()=>{
-    alert("обновлены параметры у " + document.cookie)
+    // alert("обновлены параметры у " + document.cookie)
     document.cookie += "; secure; samesite=strict"
 }, 10000)
 
 
 //sessionStorage
-debugger
+// debugger
 if(sessionStorage.getItem("countVisited")){
     sessionStorage.setItem("countVisited", Number(sessionStorage.getItem("countVisited")) + 1)
-    console.log("countVisited >> ", sessionStorage.getItem("countVisited"))
-    debugger
+    //console.log()("countVisited >> ", sessionStorage.getItem("countVisited"))
+    // debugger
 }else{
     sessionStorage.setItem("countVisited", 1)
 }
-console.log(`Сайт был посвещён ${sessionStorage.getItem("countVisited")} раз(раза)`)
+//console.log()(`Сайт был посвещён ${sessionStorage.getItem("countVisited")} раз(раза)`)
+
+
+
