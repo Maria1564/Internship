@@ -3,7 +3,7 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin")
 const HtmlWebpackPlugin = require("html-webpack-plugin")
 
 const mode = process.env.NODE_ENV === "production" ? "production" : "development"
-console.log(mode)
+
 module.exports = {
     entry: "./src/index.js",
     output: {
@@ -22,6 +22,7 @@ module.exports = {
             },
             {
                 test: /\.css$/,
+                exclude: /\.module\.css$/,
                 use: [MiniCssExtractPlugin.loader, "css-loader" ]
             },
             {
