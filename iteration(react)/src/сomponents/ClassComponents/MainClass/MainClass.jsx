@@ -1,58 +1,49 @@
 import React from "react";
+import HeaderClass from "../HeaderClass/HeaderClass";
+import NavClass from "../NavClass/NavClass";
+import CardClass from "../Cardslass/CardClass";
 import "./MainClass.css"
 
 class MainClass extends React.Component {
    
-
+    arrCads = [
+        {
+            name:"Тигрик",
+            age: "2 года",
+            isActive:  false
+        },
+        {
+            name:"Джессика",
+            age: "5 месяцев",
+            isActive:  true
+        },
+        {
+            name:"Рекс",
+            age: "1 год",
+            isActive:  false
+        },
+        {
+            name:"Чауст",
+            age: "3.5 года",
+            isActive:  false
+        },
+    ]
 
     render() {
         return(
            <>
-            <header className="header">
-                <div className="header__wrapper">
-                    <h1 className="header__title">ТВОЙ ЧЕТВЕРОНОГОЙ ДРУГ!</h1>
-                    <p className="header__text">В нашеи приюте ты можешь выбрать себе одного или нескольких питомцев совсем <strong>бесплатно</strong>!</p>
-                </div>
-            </header>
+            <HeaderClass/>
 
-            <nav className="sidebar">
-                <a href="" className="logo sidebar__logo"><img src="https://clck.ru/38uBmz" alt="logo" style={{width: 80, height: 80}}/></a>
-                <div className="sidebar__menu">
-                    <ul className="sidebar__menu-list">
-                        <li className="sidebar__menu-item"><a href="" className="sidebar__menu-link">Главня</a></li>
-                        <li className="sidebar__menu-item"><a href="" className="sidebar__menu-link">Наши питомцы</a></li>
-                        <li className="sidebar__menu-item"><a href="" className="sidebar__menu-link">Контакты</a></li>
-                    </ul>
-                </div>
-            </nav>
+            <NavClass/>
             
             <main className="content">
 
                 <div className="cards">
-                    <div className="card">
-                        <div className="card__description">
-                            <span className="card__name">Тигрик</span>
-                            <span className="card__age">2 года</span>
-                        </div>
-                    </div>
-                    <div className="card card--active">
-                        <div className="card__description">
-                            <span className="card__name">Джессика</span>
-                            <span className="card__age">5 месяцев</span>
-                        </div>
-                    </div>
-                    <div className="card">
-                        <div className="card__description">
-                            <span className="card__name">Рекс</span>
-                            <span className="card__age">1 год</span>
-                        </div>
-                    </div>
-                    <div className="card">
-                        <div className="card__description">
-                            <span className="card__name">Чауст</span>
-                            <span className="card__age">3.5   года</span>
-                        </div>
-                    </div>
+                    {   
+                        this.arrCads.map((elem, index)=>(
+                            <CardClass elem={elem} isActive={elem.isActive} key={index}/>
+                        ))
+                    }
                 </div>
 
                 <div className="content__info">
