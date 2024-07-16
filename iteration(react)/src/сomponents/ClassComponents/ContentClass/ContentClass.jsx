@@ -4,27 +4,28 @@ import CardClass from '../CardsСlass/CardClass'
 import "./Content.css"
 
 export class ContentClass extends Component {
-
+    
+    state =  {idCardActive: 2}
     arrCads = [
         {
+            id: 1,
             name:"Тигрик",
             age: "2 года",
-            isActive:  false
         },
         {
+            id:  2,
             name:"Джессика",
             age: "5 месяцев",
-            isActive:  true
         },
         {
+            id: 3,
             name:"Рекс",
             age: "1 год",
-            isActive:  false
         },
         {
+            id: 4,
             name:"Чауст",
             age: "3.5 года",
-            isActive:  false
         },
     ]
     
@@ -34,9 +35,12 @@ export class ContentClass extends Component {
 
         <div className="cards">
             {   
-                this.arrCads.map((elem, index)=>(
-                    <CardClass elem={elem} isActive={elem.isActive} key={index}/>
-                ))
+                this.arrCads.map((elem)=>{
+                    if(elem.id == this.state.idCardActive ){
+                        return <CardClass elem={elem} isActive key={elem.id} setState = {this.setState.bind(this)}/>
+                    }
+                    return <CardClass elem={elem}  key={elem.id} setState = {this.setState.bind(this)}/>
+                })
             }
         </div>
 
