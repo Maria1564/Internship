@@ -1,8 +1,9 @@
 import React from "react";
-import HeaderClass from "../HeaderClass/HeaderClass";
+// import HeaderClass from "../HeaderClass/HeaderClass";
 import NavClass from "../NavClass/NavClass";
 import "./MainClass.css"
 import ContentClass from "../ContentClass/ContentClass";
+import HeaderClassJs from "../HeaderClass/HeaderClassJs";
 
 class MainClass extends React.Component {
    
@@ -11,7 +12,8 @@ class MainClass extends React.Component {
     render() {
         return(
            <>
-            <HeaderClass/>
+            {/* <HeaderClass/> */}
+            <HeaderClassJs/>
 
             <NavClass/>
             
