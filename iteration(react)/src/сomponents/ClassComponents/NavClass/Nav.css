@@ -9,6 +9,7 @@ nav {
   background-color: var(--color-light);
   position: fixed;
   width: 33%;
+  padding: 15px;
 }
 
 .sidebar__logo::after {
