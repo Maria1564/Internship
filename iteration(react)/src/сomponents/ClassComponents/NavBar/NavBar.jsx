@@ -12,13 +12,13 @@ class NavBar extends Component {
                 <div className="sidebar__menu">
                     <ul className="sidebar__menu-list">
                         <li className="sidebar__menu-item">
-                            <NavLink to="/class" className={setActive}>Главня</NavLink>
+                            <NavLink to="home" className={setActive}>Главня</NavLink>
                         </li>
                         <li className="sidebar__menu-item">
-                            <NavLink to="/OurPets" className={setActive}>Наши питомцы</NavLink>
+                            <NavLink to="ourPets" className={setActive}>Наши питомцы</NavLink>
                         </li>
                         <li className="sidebar__menu-item">
-                            <NavLink to="/Contacts" className={setActive}>Контакты</NavLink>
+                            <NavLink to="contacts" className={setActive}>Контакты</NavLink>
                         </li>
                     </ul>
                 </div>
