@@ -35,12 +35,9 @@ export class Content extends Component {
 
         <div className="cards">
             {   
-                this.arrCads.map((elem)=>{
-                    if(elem.id == this.state.idCardActive ){
-                        return <Card elem={elem} isActive key={elem.id} setState = {this.setState.bind(this)}/>
-                    }
-                    return <Card elem={elem}  key={elem.id} setState = {this.setState.bind(this)}/>
-                })
+                this.arrCads.map((elem)=>(
+                   <Card elem={elem} isActive={elem.id === this.state.idCardActive}  key={elem.id} setState = {this.setState.bind(this)}/>
+                ))
             }
         </div>
 
