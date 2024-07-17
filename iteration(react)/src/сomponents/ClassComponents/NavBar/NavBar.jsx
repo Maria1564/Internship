@@ -4,7 +4,7 @@ import "./Nav.css"
 
 const setActive = ({isActive})=> `sidebar__menu-link ${isActive  ? 'sidebar__menu-link--active': ''}`
 
-class NavClass extends Component {
+class NavBar extends Component {
     render(){
         return(
             <nav className="sidebar">
@@ -27,4 +27,4 @@ class NavClass extends Component {
     }
 }
 
-export default NavClass
+export default NavBar

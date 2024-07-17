@@ -1,6 +1,6 @@
 import './App.css'
 import {Routes,Route, Link} from "react-router-dom"
-import MainClass from "./сomponents/ClassComponents/MainClass/MainClass"
+import Main from "./сomponents/ClassComponents/Main/Main"
 function App() {
 
   return (
@@ -10,7 +10,7 @@ function App() {
         <>
          <Link className='link' to="/class"> Сайт из классовых компонент</Link>
         </>} />
-      <Route path='/class' element={<MainClass/>} />
+      <Route path='/class' element={<Main/>} />
 
 
       {/* <Route path='functional' element={<MainFunc/>} /> */}

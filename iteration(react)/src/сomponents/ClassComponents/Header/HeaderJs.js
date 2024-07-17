@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import "./Header.css"
 
 
-export class HeaderClassJs extends Component {
+export class HeaderJs extends Component {
   render() {
     return (
         React.createElement(
@@ -34,4 +34,4 @@ export class HeaderClassJs extends Component {
   }
 }
 
-export default HeaderClassJs
+export default HeaderJs

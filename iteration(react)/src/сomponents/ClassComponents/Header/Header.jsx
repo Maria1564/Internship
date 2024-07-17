@@ -1,7 +1,7 @@
 import React, {Component} from "react"
 import "./Header.css"
 
-class HeaderClass extends Component {
+class Header extends Component {
     render(){
         return(
             <header className="header">
@@ -14,4 +14,4 @@ class HeaderClass extends Component {
     }
 }
 
-export default HeaderClass
+export default Header

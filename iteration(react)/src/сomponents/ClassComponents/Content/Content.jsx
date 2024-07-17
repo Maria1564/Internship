@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
-import FormClass from '../FormClass/FormClass'
-import CardClass from '../CardsСlass/CardClass'
+import Form from '../Form/Form'
+import Card from '../Card/Card'
 import "./Content.css"
 
-export class ContentClass extends Component {
+export class Content extends Component {
     
     state =  {idCardActive: 2}
     arrCads = [
@@ -37,9 +37,9 @@ export class ContentClass extends Component {
             {   
                 this.arrCads.map((elem)=>{
                     if(elem.id == this.state.idCardActive ){
-                        return <CardClass elem={elem} isActive key={elem.id} setState = {this.setState.bind(this)}/>
+                        return <Card elem={elem} isActive key={elem.id} setState = {this.setState.bind(this)}/>
                     }
-                    return <CardClass elem={elem}  key={elem.id} setState = {this.setState.bind(this)}/>
+                    return <Card elem={elem}  key={elem.id} setState = {this.setState.bind(this)}/>
                 })
             }
         </div>
@@ -57,11 +57,11 @@ export class ContentClass extends Component {
                 </div>
             </div>
 
-           <FormClass/>
+           <Form/>
         </div>
     </main>
     )
   }
 }
 
-export default ContentClass
+export default Content

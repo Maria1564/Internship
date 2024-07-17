@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import "./Card.css"
 
-export class CardClass extends Component {
+export class Card extends Component {
 
   render() {
     return (
@@ -15,4 +15,4 @@ export class CardClass extends Component {
   }
 }
 
-export default CardClass
+export default Card
