@@ -60,11 +60,7 @@ input {
   border-radius: 0;
 }
 
-:focus {
-  outline: 3px solid #839fd3  ;
-  border-radius: 5px;
 
-}
 ::placeholder {
   color:#95a0aa;
 }
