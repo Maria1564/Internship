@@ -1,0 +1,30 @@
+.list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    width: 750px;
+}
+
+.list__card {
+    border: 2px solid var(--color-dark-blue);
+    border-radius: 5px;
+    width: 200px;
+    min-height: 150px;
+    padding: 10px;
+    display: flex;  
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    box-shadow: 5px 4px 6px #43688a42;
+}
+
+.card__age {
+    font-size: 16px;
+    color: var(--color-blue);
+}
+
+.card__name {
+    font-weight: 500;
+    font-size: 20px;
+}

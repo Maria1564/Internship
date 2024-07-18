@@ -1,0 +1,21 @@
+.contacts {
+  background-color: var(--color-light);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.contacts__item-list {
+  margin-top: 20px;
+}
+
+.contacts__link {
+  color: black;
+}
+
+.contacts__link b {
+  color: #1c8287;
+  font-size: 20px;
+}

@@ -1,0 +1,13 @@
+main {
+  grid-area: content;
+  display: flex;
+  gap: 10px;
+}
+
+@media screen and (max-width: 1279px) {
+  main {
+    flex-direction: column;
+    max-height: none;
+    gap: 25px;
+  }
+}

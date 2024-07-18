@@ -1,0 +1,79 @@
+.logo > img {
+  border-radius: 50%;
+}
+
+nav {
+  background-color: green;
+  grid-area: nav;
+  height: 100vh;
+  background-color: var(--color-light);
+  position: fixed;
+  width: 33%;
+  padding: 15px;
+}
+
+.sidebar__logo::after {
+  content: "";
+  position: relative;
+  display: block;
+  width: 80%;
+  height: 3px;
+  background-color: var(--color-dark-blue);
+  top: 10px;
+}
+
+.sidebar__menu {
+  margin-top: 60px;
+}
+
+.sidebar__menu-item {
+  position: relative;
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+
+.sidebar__menu-item a:after {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 80%;
+  height: 30px;
+  opacity: 0;
+  top: 0;
+  left: 0;
+  transition: opacity 0.8s;
+}
+
+.sidebar__menu-item a:active {
+  color: var(--color-dark-blue);
+}
+
+.sidebar__menu-item:hover a::after {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 80%;
+  height: 30px;
+  background-color: #a2bfe9;
+  opacity: 0.4;
+  top: -2px;
+  left: -10px;
+  transition: all 0.5s;
+}
+
+.sidebar__menu-link--active {
+  color: var(--color-dark-blue);
+  font-weight: 700;
+}
+
+@media screen and (max-width: 1279px) {
+  nav {
+    height: max-content;
+    width: 100%;
+    position: relative;
+  }
+
+  .sidebar__menu-item {
+    font-size: 18px;
+  }
+}
