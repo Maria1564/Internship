@@ -1,0 +1,22 @@
+.catalog {
+    width: 100%;
+    min-height: 580px;
+    height: max-content;
+    background-color: var(--color-light);
+    padding: 35px;
+}
+
+.catalog__wrapper {
+    margin: 0 auto;
+    max-width: max-content;
+}
+
+.catalog__wrapper h2 {
+    /* max-width: max-content; */
+    text-align: center;
+}
+
+.catalog__btns {
+    display: flex;
+    gap: 20px;
+}

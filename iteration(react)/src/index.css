@@ -37,6 +37,7 @@ p, h1, h2, h3 {
 h2 {
   font-weight: 600;
   margin-bottom: 20px;
+  font-size: 32px;
 }
 
 a {
