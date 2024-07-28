@@ -11,6 +11,7 @@ export class Content extends Component {
     return (
       <main className="content">
         <Routes>
+          <Route index element={<Home />} />
           <Route path="home" element={<Home />} />
           <Route path="ourPets" element={<AnimalCatalog />} />
           <Route path="contacts" element={<Contacts/>} />
