@@ -1,10 +1,10 @@
 import {useEffect, useState } from "react"
 
-export const useSort = (array = [], parameter) =>{
+export const useSort = (array = [], parameter="id") =>{
    const [sortArr, setSortArr] =  useState([])
    const copyArr = [...array]
    useEffect(()=>{
-      switch(typeof parameter){
+      switch(typeof copyArr[0][parameter]){
          case "string":
             setSortArr(copyArr.sort((a, b) => {
                const nameA = a[parameter].toUpperCase()
