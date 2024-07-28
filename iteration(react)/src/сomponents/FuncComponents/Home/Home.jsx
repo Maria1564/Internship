@@ -1,47 +1,54 @@
 import { useCallback, useEffect, useState } from "react";
 import Form from "../Form/Form";
 import Card from "../Card/Card";
+import { useSort } from "../Hook/useSort";
 
 const Home = () => {
-
+  const apiResponse = [
+    {
+        id: 1,
+        name:"Тигрик",
+        age: "2 года",
+    },
+    {
+        id:  2,
+        name:"Джессика",
+        age: "5 месяцев",
+    },
+    {
+        id: 3,
+        name:"Рекс",
+        age: "1 год",
+    },
+    {
+        id: 4,
+        name:"Чауст",
+        age: "3.5 года",
+    },
+]
     const [idActiveCard, setIdActiveCard] = useState(2)
-    const [cards, setCards] = useState([])
+    // const [cards, setCards] = useState([])
+    const sortArr = useSort(apiResponse, "name")
 
     useEffect(()=>{
+        // setCards(prev=>[...prev, ...apiResponse])
+        console.log("Компонент создан")
 
-      const apiResponse = [
-        {
-            id: 1,
-            name:"Тигрик",
-            age: "2 года",
-        },
-        {
-            id:  2,
-            name:"Джессика",
-            age: "5 месяцев",
-        },
-        {
-            id: 3,
-            name:"Рекс",
-            age: "1 год",
-        },
-        {
-            id: 4,
-            name:"Чауст",
-            age: "3.5 года",
-        },
-    ]
-        setCards(prev=>[...prev, ...apiResponse])
+        return () => console.log("Компонент будет удалён")
     }, [])
+
+    useEffect(()=>{
+      console.log("id текущей карточки равно ", idActiveCard)
+    }, [idActiveCard])
     
     const selectCard = useCallback((idCard) => {
       setIdActiveCard(idCard)
     }, [])
-  
+
   return (
     <>
       <div className="cards">
-        {cards.map((elem) => (
+        {sortArr.map((elem) => (
           <Card
             elem={elem}
             isActive={elem.id === idActiveCard}

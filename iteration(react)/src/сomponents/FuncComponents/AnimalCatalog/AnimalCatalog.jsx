@@ -4,7 +4,6 @@ import List from './List/List'
 
 const AnimalCatalog = () => {
   const [selectAnimal, setSelectAnimal] = useState("cat")
-
   return (
     <div className="catalog">
       <div className='catalog__wrapper'>
