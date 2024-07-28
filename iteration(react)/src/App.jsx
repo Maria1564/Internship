@@ -5,6 +5,9 @@ import Layout from './сomponents/FuncComponents/Layout/Layout'
 import Home from './сomponents/FuncComponents/Home/Home'
 import AnimalCatalog from './сomponents/FuncComponents/AnimalCatalog/AnimalCatalog'
 import Contacts from './сomponents/FuncComponents/Contacts/Contacts'
+import Header from './сomponents/FuncComponents/Header/Header'
+import NavBar from './сomponents/FuncComponents/NavBar/NavBar'
+
 
 function App() {
 
@@ -19,7 +22,12 @@ function App() {
 
       <Route path='/class/*' element={<Main/>} />
 
-      <Route path='/functional' element={<Layout/>}>
+      <Route path='/functional' 
+      element={
+      <Layout>
+        <Header />
+        <NavBar />
+      </Layout>}>
         <Route index element={<Home/>}/>
         <Route path="home" element={<Home/>}/>
         <Route path='ourPets' element={<AnimalCatalog/>}/>

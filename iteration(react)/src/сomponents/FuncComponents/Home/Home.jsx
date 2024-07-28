@@ -1,11 +1,10 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import Form from "../Form/Form";
 import Card from "../Card/Card";
 
 const Home = () => {
 
-    // state =  {idCardActive: 2}
-    const [idActiveCard, setIdActiveCrd] = useState(2)
+    const [idActiveCard, setIdActiveCard] = useState(2)
     const [cards, setCards] = useState([])
 
     useEffect(()=>{
@@ -35,7 +34,9 @@ const Home = () => {
         setCards(prev=>[...prev, ...apiResponse])
     }, [])
     
-
+    const selectCard = useCallback((idCard) => {
+      setIdActiveCard(idCard)
+    }, [])
   
   return (
     <>
@@ -45,7 +46,7 @@ const Home = () => {
             elem={elem}
             isActive={elem.id === idActiveCard}
             key={elem.id}
-            setIdActiveCrd={setIdActiveCrd}
+            selectCard={selectCard}
           />
         ))}
       </div>

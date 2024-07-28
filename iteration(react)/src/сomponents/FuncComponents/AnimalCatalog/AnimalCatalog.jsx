@@ -15,7 +15,7 @@ const AnimalCatalog = () => {
 
           <AnimalProvider selectAnimal={selectAnimal} render={ data=>
             <>
-            <h2>{selectAnimal === "cat" ? "Кошки" : "Собаки"}</h2>
+              <h2>{selectAnimal === "cat" ? "Кошки" : "Собаки"}</h2>
               <List listAnimals={data}/>
             </> }/>
       </div>
