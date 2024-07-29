@@ -1,5 +1,5 @@
 import './App.css'
-import {Routes,Route, Link} from "react-router-dom"
+import {Routes,Route, Link, Navigate} from "react-router-dom"
 import Main from "./сomponents/ClassComponents/Main/Main"
 import Layout from './сomponents/FuncComponents/Layout/Layout'
 import Home from './сomponents/FuncComponents/Home/Home'
@@ -28,7 +28,7 @@ function App() {
         <Header />
         <NavBar />
       </Layout>}>
-        <Route index element={<Home/>}/>
+        <Route index element={<Navigate to="home"/>}/>
         <Route path="home" element={<Home/>}/>
         <Route path='ourPets' element={<AnimalCatalog/>}/>
         <Route path="contacts" element={<Contacts/>} />
