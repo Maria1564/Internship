@@ -6,6 +6,21 @@ import "./AnimalCatalog.css"
 export class AnimalCatalog extends Component {
   state={selectAnimal: "cat"}
 
+  componentDidMount() {
+    console.log("Создался компонент AnimalCatalog")
+  }
+
+  componentDidUpdate(_, prevState){
+    console.log("Компонент AnimalCatalog обновлён")
+    if(prevState.selectAnimal !== this.state.selectAnimal){
+      console.log(`${prevState.selectAnimal} переключено на ${this.state.selectAnimal}`)
+    }
+  }
+
+  componentWillUnmount(){
+    console.log("Компонент AnimalCatalog сейчас будет удалён")
+  } 
+
   render() {
     return (
       <div className="catalog">

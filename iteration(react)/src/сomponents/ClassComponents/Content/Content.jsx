@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import "./Content.css";
 import AnimalCatalog from "../AnimalCatalog/AnimalCatalog";
 import Home from "../Home/Home";
@@ -11,6 +11,7 @@ export class Content extends Component {
     return (
       <main className="content">
         <Routes>
+          <Route index element={<Navigate to="home"/>} />
           <Route path="home" element={<Home />} />
           <Route path="ourPets" element={<AnimalCatalog />} />
           <Route path="contacts" element={<Contacts/>} />
