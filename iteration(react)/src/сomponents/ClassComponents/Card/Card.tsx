@@ -1,7 +1,14 @@
 import React, { Component } from 'react'
 import "./Card.css"
+import { ICardPet } from '../../../interfaces'
 
-export class Card extends Component {
+
+interface ICardProps {
+  elem: ICardPet;
+  isActive: boolean;
+  setState: (state: {idCardActive: number}) => void
+}
+export class Card extends Component<ICardProps> {
 
   render() {
     return (

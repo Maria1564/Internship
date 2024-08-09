@@ -6,7 +6,7 @@ import Home from './сomponents/FuncComponents/Home/Home'
 import AnimalCatalog from './сomponents/FuncComponents/AnimalCatalog/AnimalCatalog'
 import Contacts from './сomponents/FuncComponents/Contacts/Contacts'
 import Header from './сomponents/FuncComponents/Header/Header'
-import NavBar from './сomponents/FuncComponents/NavBar/NavBar'
+import NavBar from './сomponents/FuncComponents/Navbar/NavBar'
 
 
 function App() {
