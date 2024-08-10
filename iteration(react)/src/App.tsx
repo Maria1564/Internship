@@ -7,6 +7,7 @@ import AnimalCatalog from './сomponents/FuncComponents/AnimalCatalog/AnimalCata
 import Contacts from './сomponents/FuncComponents/Contacts/Contacts'
 import Header from './сomponents/FuncComponents/Header/Header'
 import NavBar from './сomponents/FuncComponents/Navbar/NavBar'
+import ListRepositories from './api/component/ListRepositories'
 
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
         <>
          <Link className='link' to="/class"> Сайт из классовых компонент</Link>
          <Link className='link' to="/functional"> Сайт из функциональных компонент</Link>
+         <Link className='link' to="/apiGitHub">API</Link>
         </>} />
 
       <Route path='/class/*' element={<Main/>} />
@@ -33,6 +35,9 @@ function App() {
         <Route path='ourPets' element={<AnimalCatalog/>}/>
         <Route path="contacts" element={<Contacts/>} />
       </Route>
+
+      <Route path='/apiGitHub' element={<ListRepositories/>}/>    
+        
       <Route path='/*' element={<h1>ERROR 404</h1>} />
     </Routes>
       
