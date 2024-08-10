@@ -3,3 +3,5 @@ export interface ICardPet{
   name: string;
   age: string;
 }
+
+export type CatOrDog = "cat"| 'dog'

@@ -1,6 +1,13 @@
-import React, {memo} from 'react'
+import {memo} from 'react'
+import { ICardPet } from '../../../interfaces'
 
-const Card = memo(({isActive, selectCard, elem}) => {
+type CardProps = {
+    elem:  ICardPet;
+    isActive: boolean;
+    selectCard: (idCard: number) => void
+}
+
+const Card = memo(({isActive, selectCard, elem}: CardProps) => {
     console.log(isActive,elem)
   return (
       <div className={`card ${isActive ? "card--active": ""}`} onClick={()=>selectCard(elem.id)}>

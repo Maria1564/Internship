@@ -1,5 +1,11 @@
+import { ICardPet, CatOrDog } from "../../../../interfaces"
 
-const AnimalProvider = (props) => {
+type AnimalProviderProps = {
+  selectAnimal: CatOrDog;
+  render: (data: ICardPet[]) => JSX.Element
+}
+
+const AnimalProvider = (props: AnimalProviderProps) => {
     const dataAnimal = {
         cat: [
           {
