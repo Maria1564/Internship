@@ -7,7 +7,7 @@ import AnimalCatalog from './сomponents/FuncComponents/AnimalCatalog/AnimalCata
 import Contacts from './сomponents/FuncComponents/Contacts/Contacts'
 import Header from './сomponents/FuncComponents/Header/Header'
 import NavBar from './сomponents/FuncComponents/Navbar/NavBar'
-import ListRepositories from './api/component/ListRepositories'
+import ListRepositories from './api/components/ListRepositories'
 
 
 function App() {
