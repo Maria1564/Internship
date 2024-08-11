@@ -1,8 +1,8 @@
 import { Component } from 'react'
-import { ICardPet } from '../../../../interfaces';
+import { CatOrDog, ICardPet } from '../../../../interfaces';
 
 interface IAnimalProviderProps{
-  selectAnimal: "cat" | "dog";
+  selectedAnimal: CatOrDog;
   render: (data: ICardPet[])=> JSX.Element
 }
 
@@ -47,7 +47,7 @@ export class AnimalProvider extends Component<IAnimalProviderProps> {
 
   render() {
     return (
-      this.props.render(this.dataAnimal[this.props.selectAnimal])
+      this.props.render(this.dataAnimal[this.props.selectedAnimal])
     )
   }
 }

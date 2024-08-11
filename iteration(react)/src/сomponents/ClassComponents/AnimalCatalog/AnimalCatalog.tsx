@@ -1,20 +1,18 @@
-import React, { Component } from 'react'
+import { Component } from 'react'
 import AnimalProvider from './AnimalProvider/AnimalProvider'
 import List from './List/List'
 import "./AnimalCatalog.css"
-import type { ICardPet } from "../../../interfaces/";
+import type { CatOrDog, ICardPet } from "../../../interfaces/";
 
 
 interface IAnimalCatalogState {
-  selectAnimal:( "cat" | "dog")
+  selectedAnimal:CatOrDog
 }
 
 interface IAnimalCatalogProps {}
 
-
-
 export class AnimalCatalog extends Component<IAnimalCatalogProps, IAnimalCatalogState> {
-  state:IAnimalCatalogState={selectAnimal: "cat"}
+  state:IAnimalCatalogState={selectedAnimal: "cat"}
 
   componentDidMount() {
     console.log("Создался компонент AnimalCatalog")
@@ -22,8 +20,8 @@ export class AnimalCatalog extends Component<IAnimalCatalogProps, IAnimalCatalog
 
   componentDidUpdate(_: IAnimalCatalogProps, prevState: IAnimalCatalogState){
     console.log("Компонент AnimalCatalog обновлён")
-    if(prevState.selectAnimal !== this.state.selectAnimal){
-      console.log(`${prevState.selectAnimal} переключено на ${this.state.selectAnimal}`)
+    if(prevState.selectedAnimal !== this.state.selectedAnimal){
+      console.log(`${prevState.selectedAnimal} переключено на ${this.state.selectedAnimal}`)
     }
   }
 
@@ -36,13 +34,13 @@ export class AnimalCatalog extends Component<IAnimalCatalogProps, IAnimalCatalog
       <div className="catalog">
         <div className='catalog__wrapper'>
           <div className="catalog__btns">
-            <button className="btn" onClick={()=> this.setState({selectAnimal: "cat"})}>Кошки</button>
-            <button className='btn' onClick={()=> this.setState({selectAnimal: "dog"})}>Собаки</button>
+            <button className="btn" onClick={()=> this.setState({selectedAnimal: "cat"})}>Кошки</button>
+            <button className='btn' onClick={()=> this.setState({selectedAnimal: "dog"})}>Собаки</button>
           </div>
 
-            <AnimalProvider selectAnimal={this.state.selectAnimal} render={ (data: ICardPet[]) =>
+            <AnimalProvider selectedAnimal={this.state.selectedAnimal} render={ (data: ICardPet[]) =>
               <>
-              <h2>{this.state.selectAnimal === "cat" ? "Кошки" : "Собаки"}</h2>
+              <h2>{this.state.selectedAnimal === "cat" ? "Кошки" : "Собаки"}</h2>
                 <List listAnimals={data}/>
               </> }/>
         </div>
