@@ -1,10 +1,13 @@
-import React from "react";
+import { ICardPet } from "../../../../interfaces";
 
-const List = ({listAnimals}) => {
+type ListProps = {
+  listAnimals: ICardPet[]
+}
+
+const List = ({listAnimals}: ListProps) => {
 
 
     return (
-        console.log(listAnimals)||
       <div className="list">
         {listAnimals.map((elem) => (
           <div className="list__card" key={elem.id}>

@@ -2,9 +2,13 @@ import { useCallback, useEffect, useState } from "react";
 import Form from "../Form/Form";
 import Card from "../Card/Card";
 import { useSort } from "../Hook/useSort";
+import type {ICardPet} from "../../../interfaces" 
+
 
 const Home = () => {
-  const apiResponse = [
+  type SelectCardFunc = (idCard: number) => void
+
+  const apiResponse: ICardPet[] = [
     {
         id: 1,
         name:"Тигрик",
@@ -27,11 +31,9 @@ const Home = () => {
     },
 ]
     const [idActiveCard, setIdActiveCard] = useState(2)
-    // const [cards, setCards] = useState([])
-    const sortArr = useSort(apiResponse, "name")
+    const sortArr = useSort<ICardPet, "name">(apiResponse, "name")
 
     useEffect(()=>{
-        // setCards(prev=>[...prev, ...apiResponse])
         console.log("Компонент создан")
 
         return () => console.log("Компонент будет удалён")
@@ -41,7 +43,7 @@ const Home = () => {
       console.log("id текущей карточки равно ", idActiveCard)
     }, [idActiveCard])
     
-    const selectCard = useCallback((idCard) => {
+    const selectCard = useCallback<SelectCardFunc>((idCard) => {
       setIdActiveCard(idCard)
     }, [])
 

@@ -2,7 +2,9 @@ import { Component } from "react";
 import {NavLink} from "react-router-dom"
 import "./Nav.css"
 
-const setActive = ({isActive})=> `sidebar__menu-link ${isActive  ? 'sidebar__menu-link--active': ''}`
+
+type TypeIsActive = (props: {isActive: boolean}) => string
+const setActive:  TypeIsActive = ({isActive})=> `sidebar__menu-link ${isActive  ? 'sidebar__menu-link--active': ''}`
 
 class NavBar extends Component {
     render(){

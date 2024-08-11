@@ -1,6 +1,7 @@
 import {NavLink} from "react-router-dom"
 
-const setActive = ({isActive})=> `sidebar__menu-link ${isActive  ? 'sidebar__menu-link--active': ''}`
+type TypeIsActive = (props: {isActive: boolean}) => string
+const setActive:TypeIsActive = ({isActive})=> `sidebar__menu-link ${isActive  ? 'sidebar__menu-link--active': ''}`
 
 const NavBar = () => {
     

@@ -1,9 +1,11 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import AnimalProvider from './AnimalProvider/AnimalProvider'
 import List from './List/List'
+import { CatOrDog, ICardPet } from '../../../interfaces'
 
 const AnimalCatalog = () => {
-  const [selectAnimal, setSelectAnimal] = useState("cat")
+  
+  const [selectAnimal, setSelectAnimal] = useState<CatOrDog>("cat")
   return (
     <div className="catalog">
       <div className='catalog__wrapper'>
@@ -12,7 +14,7 @@ const AnimalCatalog = () => {
           <button className='btn' onClick={()=> setSelectAnimal("dog")}>Собаки</button>
         </div>
 
-          <AnimalProvider selectAnimal={selectAnimal} render={ data=>
+          <AnimalProvider selectAnimal={selectAnimal} render={ (data: ICardPet[]) =>
             <>
               <h2>{selectAnimal === "cat" ? "Кошки" : "Собаки"}</h2>
               <List listAnimals={data}/>

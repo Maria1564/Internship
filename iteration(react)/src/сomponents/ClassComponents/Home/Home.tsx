@@ -1,33 +1,39 @@
 import { Component } from "react";
-import "./Home.css"
+import "./Home.css";
 import Form from "../Form/Form";
 import Card from "../Card/Card";
+import type { ICardPet } from "../../../interfaces";
 
-class Home extends Component {
+interface IHomeState {
+  idCardActive: number;
+}
 
-    state =  {idCardActive: 2}
-    arrCads = [
-        {
-            id: 1,
-            name:"Тигрик",
-            age: "2 года",
-        },
-        {
-            id:  2,
-            name:"Джессика",
-            age: "5 месяцев",
-        },
-        {
-            id: 3,
-            name:"Рекс",
-            age: "1 год",
-        },
-        {
-            id: 4,
-            name:"Чауст",
-            age: "3.5 года",
-        },
-    ]
+
+interface IHomeProps {}
+class Home extends Component<IHomeProps, IHomeState> {
+  state = { idCardActive: 2 };
+  arrCads: ICardPet[] = [
+    {
+      id: 1,
+      name: "Тигрик",
+      age: "2 года",
+    },
+    {
+      id: 2,
+      name: "Джессика",
+      age: "5 месяцев",
+    },
+    {
+      id: 3,
+      name: "Рекс",
+      age: "1 год",
+    },
+    {
+      id: 4,
+      name: "Чауст",
+      age: "3.5 года",
+    },
+  ];
 
   render() {
     return (

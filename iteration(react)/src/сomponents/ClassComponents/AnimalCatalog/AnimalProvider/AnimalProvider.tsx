@@ -1,6 +1,12 @@
 import { Component } from 'react'
+import { CatOrDog, ICardPet } from '../../../../interfaces';
 
-export class AnimalProvider extends Component {
+interface IAnimalProviderProps{
+  selectedAnimal: CatOrDog;
+  render: (data: ICardPet[])=> JSX.Element
+}
+
+export class AnimalProvider extends Component<IAnimalProviderProps> {
     dataAnimal = {
         cat: [
           {
@@ -41,7 +47,7 @@ export class AnimalProvider extends Component {
 
   render() {
     return (
-      this.props.render(this.dataAnimal[this.props.selectAnimal])
+      this.props.render(this.dataAnimal[this.props.selectedAnimal])
     )
   }
 }

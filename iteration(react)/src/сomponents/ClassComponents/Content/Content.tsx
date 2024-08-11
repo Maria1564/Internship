@@ -12,7 +12,7 @@ export class Content extends Component {
       <main className="content">
         <Routes>
           <Route index element={<Navigate to="home"/>} />
-          <Route path="home" element={<Home />} />
+          <Route path="home" element={<Home/>} />
           <Route path="ourPets" element={<AnimalCatalog />} />
           <Route path="contacts" element={<Contacts/>} />
         </Routes>

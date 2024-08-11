@@ -1,0 +1,36 @@
+.title,
+.promise > h2,
+.await > h2 {
+  margin: 0;
+  margin-bottom: 5px;
+  color: black;
+}
+
+.promise,
+.await {
+  margin-top: 60px;
+  max-width: max-content;
+  padding-bottom: 20px;
+}
+
+.github-user {
+  margin: 10px 0;
+  padding: 10px 20px;
+  border: 1px solid black;
+  border-radius: 8px;
+  width: max-content;
+}
+
+.list_rep > li:not(:first-child) {
+  margin-top: 20px;
+}
+
+input[type=submit]  {
+    cursor: pointer;
+}
+
+
+.promise input,
+.await input {
+  border: 1px solid black
+}
