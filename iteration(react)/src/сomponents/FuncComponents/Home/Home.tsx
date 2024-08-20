@@ -1,59 +1,45 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useContext, useEffect,  } from "react";
 import Form from "../Form/Form";
 import Card from "../Card/Card";
 import { useSort } from "../Hook/useSort";
-import type {ICardPet} from "../../../interfaces" 
+import type {ContextType, ICardPet} from "../../../interfaces" 
+import { Context } from "../../../context";
 
 
 const Home = () => {
   type SelectCardFunc = (idCard: number) => void
 
-  const apiResponse: ICardPet[] = [
-    {
-        id: 1,
-        name:"Тигрик",
-        age: "2 года",
-    },
-    {
-        id:  2,
-        name:"Джессика",
-        age: "5 месяцев",
-    },
-    {
-        id: 3,
-        name:"Рекс",
-        age: "1 год",
-    },
-    {
-        id: 4,
-        name:"Чауст",
-        age: "3.5 года",
-    },
-]
-    const [idActiveCard, setIdActiveCard] = useState(2)
-    const sortArr = useSort<ICardPet, "name">(apiResponse, "name")
+  const  context = useContext<ContextType | null>(Context)
 
-    useEffect(()=>{
-        console.log("Компонент создан")
+  const listDogs = context?.listDogs || []; 
+  const idActiveDog = context?.idActiveDog; 
+  const selectIdActiveDog = context?.selectIdActiveDog
 
-        return () => console.log("Компонент будет удалён")
-    }, [])
-
-    useEffect(()=>{
-      console.log("id текущей карточки равно ", idActiveCard)
-    }, [idActiveCard])
+  const sortArr = useSort<ICardPet, "name">(listDogs, "name")
+  
+  useEffect(()=>{
+    console.log("Компонент создан")
     
-    const selectCard = useCallback<SelectCardFunc>((idCard) => {
-      setIdActiveCard(idCard)
-    }, [])
+    return () => console.log("Компонент будет удалён")
+  }, [])
+  
+  useEffect(()=>{
+    console.log("id текущей карточки равно ", idActiveDog)
+  }, [idActiveDog])
+  
+  const selectCard = useCallback<SelectCardFunc>((idCard) => {
+    if (selectIdActiveDog) {
+      selectIdActiveDog(idCard);
+    }
+  }, [selectIdActiveDog])
 
-  return (
+    return (
     <>
       <div className="cards">
         {sortArr.map((elem) => (
           <Card
             elem={elem}
-            isActive={elem.id === idActiveCard}
+            isActive={elem.id === idActiveDog}
             key={elem.id}
             selectCard={selectCard}
           />
@@ -80,7 +66,7 @@ const Home = () => {
         </div>
 
         <Form />
-      </div>
+        </div>
     </>
   );
   

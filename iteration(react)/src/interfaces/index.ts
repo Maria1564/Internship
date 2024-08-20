@@ -14,4 +14,10 @@ export interface IRepositoriesGitHub {
   full_name: string;
 }
 
+export type ContextType = {
+  listDogs: ICardPet[],
+  idActiveDog: number
+  selectIdActiveDog: (id: number) => void 
+}
+
 export type CatOrDog = "cat"| 'dog'
