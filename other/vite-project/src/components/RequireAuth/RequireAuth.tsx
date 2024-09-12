@@ -7,7 +7,7 @@ type RequireAuthProps = {
 }
 
 const RequireAuth: React.FC<RequireAuthProps> = ({isAuth, children}) => {
-
+    
     if(!isAuth){
         return <Navigate to="/login"/>
     }

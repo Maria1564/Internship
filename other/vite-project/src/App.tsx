@@ -8,20 +8,21 @@ import Button from "./components/Button/Button"
 
 
 function App() {
-  const [isAuth, setIsAuth] = useState<boolean>(false)
+  const [isAuth, setIsAuth] = useState<boolean>(true)
   useEffect(()=>{
     const token = localStorage.getItem("token")
     if(token) {
       setIsAuth(true)
+    }else {
+      setIsAuth(false)
     }
-  }, [])
-  console.log("isAuth", isAuth)
+  }, [isAuth])
   // const SuspensTest = withSuspense(Test)
   return (
     <>
       <Routes>
-          <Route path="/login" element={<Login/>}/>
-          <Route path="/" element={
+          <Route path="/login" element={<Login setIsAuth={setIsAuth}/>}/>
+          <Route path="/home" element={
             <RequireAuth isAuth={isAuth}>
                 <HomePage/>
             </RequireAuth>
