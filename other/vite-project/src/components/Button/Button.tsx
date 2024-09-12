@@ -2,12 +2,14 @@ import React, { ReactNode } from 'react'
 import "./Button.css"
 
 type ButtonProps = {
-    children: ReactNode
+    children: ReactNode,
+    type?: "button" | "submit" | "reset",
+    onClick?: ()=> void
 }
 
-const Button: React.FC<ButtonProps> = ({children}) => {
+const Button: React.FC<ButtonProps> = ({children, onClick, type="button"}) => {
   return (
-    <button type='submit' className='btn'>{children}</button>
+    <button type={type} className='btn' onClick={onClick}>{children}</button>
   )
 }
 

@@ -3,7 +3,6 @@ import Login from "./components/Login/Login"
 import { useEffect, useState } from "react"
 import RequireAuth from "./components/RequireAuth/RequireAuth"
 import HomePage from "./components/HomePage/HomePage"
-import Button from "./components/Button/Button"
 // import withSuspense from "./hoc/withSuspense"
 
 
@@ -22,13 +21,12 @@ function App() {
     <>
       <Routes>
           <Route path="/login" element={<Login setIsAuth={setIsAuth}/>}/>
-          <Route path="/home" element={
+          <Route path="/" element={
             <RequireAuth isAuth={isAuth}>
-                <HomePage/>
+                <HomePage setIsAuth={setIsAuth}/>
             </RequireAuth>
           }/>
       </Routes>
-      <Button>Привет</Button>
     </>
   )
 }

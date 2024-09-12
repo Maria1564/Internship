@@ -22,6 +22,7 @@ const Login: React.FC<LoginProps> = ({ setIsAuth }) => {
       body: JSON.stringify({
         username: values.username,
         password: values.password,
+        expiresInMins: 1,
       }),
     })
       .then(res => res.json())
@@ -31,8 +32,9 @@ const Login: React.FC<LoginProps> = ({ setIsAuth }) => {
         } else {
           console.log("succes", res);
           localStorage.setItem("token", res.token);
+          localStorage.setItem("refreshToken", res.refreshToken);
           setIsAuth(true);
-          return navigate("/home");
+          return navigate("/");
         }
       });
   };
@@ -59,7 +61,7 @@ const Login: React.FC<LoginProps> = ({ setIsAuth }) => {
             placeholder="Введите пароль"
             type="password"
           />
-          <Button>Подтвердить</Button>
+          <Button type="submit">Подтвердить</Button>
         </Form>
       </Formik>
     </div>
