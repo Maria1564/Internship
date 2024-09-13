@@ -3,12 +3,14 @@ import Login from "./components/Login/Login"
 import { useEffect, useState } from "react"
 import RequireAuth from "./components/RequireAuth/RequireAuth"
 import HomePage from "./components/HomePage/HomePage"
+import AboutUser from "./components/AboutUser/AboutUser"
 // import withSuspense from "./hoc/withSuspense"
 
 
 function App() {
   const [isAuth, setIsAuth] = useState<boolean>(true)
   useEffect(()=>{
+
     const token = localStorage.getItem("token")
     if(token) {
       setIsAuth(true)
@@ -25,6 +27,11 @@ function App() {
             <RequireAuth isAuth={isAuth}>
                 <HomePage setIsAuth={setIsAuth}/>
             </RequireAuth>
+          }/>
+          <Route path="about-me" element={
+            <RequireAuth isAuth={isAuth}>
+            <AboutUser />
+          </RequireAuth>
           }/>
       </Routes>
     </>

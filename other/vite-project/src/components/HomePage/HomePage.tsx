@@ -1,66 +1,25 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState} from "react";
 import { useNavigate } from "react-router-dom";
 import Button from "../Button/Button";
+
+import { axiosPublic } from "../../axios/axiosPublic";
 
 type HomePageProps = {
   setIsAuth: (state: boolean) => void;
 };
 
 const HomePage: React.FC<HomePageProps> = ({ setIsAuth }) => {
-  const [infoUser, setInfoUser] = useState<{ image: string } | null>(null);
-
+  const [nameUser, setNameUser] = useState<string>("")
   const navigate = useNavigate();
 
-  // useEffect(() => {
-  //   const token = localStorage.getItem("token");
-  //   fetch("https://dummyjson.com/user/me", {
-  //     method: "GET",
-  //     headers: {
-  //       Authorization: `Bearer ${token}`,
-  //     },
-  //   })
-  //     .then(res => res.json())
-  //     .then(res => {
-  //       //Отправка refresh token
-  //       if (res?.message) {
-  //         const refreshToken = localStorage.getItem("refreshToken");
-  //         fetch("https://dummyjson.com/auth/refresh", {
-  //           method: "POST",
-  //           headers: {
-  //             "Content-Type": "application/json",
-  //           },
-  //           body: JSON.stringify({
-  //             refreshToken: refreshToken,
-  //             expiresInMins: 20, // optional, defaults to 60
-  //           }),
-  //         })
-  //           .then(res => res.json())
-  //           .then(res => {
-  //             if (res?.message) {
-  //               console.log("error >> ", res.message);
-  //               localStorage.removeItem("token");
-  //               localStorage.removeItem("refreshToken");
-  //               setIsAuth(false);
-  //               navigate("/login");
-  //             }
+  useEffect(() => {
+    axiosPublic.get("/user/me")
+    .then(({data}) => setNameUser(data.username))
+  }, []);
 
-  //             console.log("(fetch refresh token)res >> ", res )
-
-  //             localStorage.setItem("token", res.token)
-  //             localStorage.setItem("refreshToken", res.refreshToken)
-  //             fetch("https://dummyjson.com/user/me", {
-  //               method: "GET",
-  //               headers: {
-  //                 Authorization: `Bearer ${res.token}`,
-  //               },
-  //             }).then(res => res.json())
-  //               .then(res => setInfoUser({ image: res.image }))
-  //           });
-  //       }
-  //       setInfoUser({ image: res.image });
-  //     });
-  // }, []);
-
+    
+  // axiosPublic.get("/carts").then(res=> console.log(res))
+  
   const handleLogout = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("refreshToken");
@@ -70,8 +29,7 @@ const HomePage: React.FC<HomePageProps> = ({ setIsAuth }) => {
 
   return (
     <div>
-      <img src={infoUser?.image} alt="" />
-      <h2>{}</h2>
+      <Button onClick={()=>navigate("/about-me")}>Инфа о {nameUser}</Button>
       <Button onClick={handleLogout}>Выйти</Button>
     </div>
   );
