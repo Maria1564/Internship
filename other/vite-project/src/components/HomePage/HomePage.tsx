@@ -1,7 +1,7 @@
 import React, { useEffect, useState} from "react";
 import { useNavigate } from "react-router-dom";
 import Button from "../Button/Button";
-
+import s from "./HomePage.module.css"
 import { axiosPublic } from "../../axios/axiosPublic";
 
 type HomePageProps = {
@@ -14,7 +14,10 @@ const HomePage: React.FC<HomePageProps> = ({ setIsAuth }) => {
 
   useEffect(() => {
     axiosPublic.get("/user/me")
-    .then(({data}) => setNameUser(data.username))
+    .then(({data}) => {
+      setNameUser(data.username)
+      localStorage.setItem("idUser", data.id)
+    })
   }, []);
 
     
@@ -23,14 +26,18 @@ const HomePage: React.FC<HomePageProps> = ({ setIsAuth }) => {
   const handleLogout = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("refreshToken");
+    localStorage.removeItem("idUser");
     setIsAuth(false);
     navigate("/login");
   };
 
   return (
     <div>
-      <Button onClick={()=>navigate("/about-me")}>Инфа о {nameUser}</Button>
-      <Button onClick={handleLogout}>Выйти</Button>
+      <div className={s.btns}>
+        <Button onClick={()=>navigate("/about-me")}>Инфа о {nameUser}</Button>
+        <Button onClick={()=>navigate("/my-posts")}>Посты {nameUser}</Button>
+        <Button onClick={handleLogout}>Выйти</Button>
+      </div>
     </div>
   );
 };
