@@ -14,13 +14,20 @@
     border-radius: 6px;
     box-shadow: 2px 5px 8px #b9bcef73;
     padding: 12px 20px;
+    position: relative;
 }
 
 #inp_title {
     width: 70%;
-    margin-bottom: 20px;
 }
 
 #inp_text {
+    margin-top: 20px;
     padding: 20px;
+}
+
+.error_message {
+    position: relative;
+    top: -6px;
+    color:red
 }
